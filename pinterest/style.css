@@ -9,7 +9,6 @@ body {
 }
 .gallery {
     padding: 3rem 5rem;
-    height: 100vh;
     width: 100%;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -28,6 +27,8 @@ body {
     width: 100%;
 }
 .image img {
+    height: 100%;
+    width: 100%;
     max-width: 100%;
     border-radius: 1rem;
 }
