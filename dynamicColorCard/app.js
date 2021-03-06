@@ -27,10 +27,9 @@ $yellow.addEventListener('click', () => {
 
 const change = (color) => {
     $background.style.backgroundColor = `var(--${color})`
-    for (let i = 0; i < $title.length; i++) {
-        $title[i].style.color = `var(--${color})`
-    }
-
+    $title.forEach(title => {
+        title.style.color = `var(--${color})`
+    })
     $btnDark.style.backgroundColor = `var(--${color})`
     $btnLight.style.color = `var(--${color})`
     $btnLight.style.border = `2px solid var(--${color})`
