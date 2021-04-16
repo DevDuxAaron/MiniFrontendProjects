@@ -1,0 +1,125 @@
+:root {
+    --black: #02111b;
+    --blue: #266dd3;
+    --green: #058c42;
+    --alpha-green: rgba(5, 140, 66, 0.8);
+    --light-green: #16db65;
+    --gray: #d4dcff;
+    --white: #f0f0f0;
+    --font: "Arial", "Helvetica", sans-serif;
+}
+/* *************** General *************** */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+ul {
+    list-style: none;
+}
+a {
+    text-decoration: none;
+}
+
+/* *************** Page style *************** */
+html {
+    scroll-behavior: smooth;
+}
+body {
+    font-family: var(--font);
+}
+
+/* *************** Header *************** */
+header {
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+}
+.btn-group {
+    height: 3rem;
+    width: 6rem;
+    position: absolute;
+    z-index: 2;
+    bottom: 5%;
+    right: 5%;
+    display: grid;
+    gap: .5rem;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas: 'btnUp btnMenu';
+}
+.btn {
+    outline: none;
+    border: 2px solid var(--white);
+    border-radius: 50%;
+    background-color: var(--blue);
+}
+.btn-menu {
+    grid-area: btnMenu;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+}
+.btn-up {
+    grid-area: btnUp;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    color: var(--white);
+}
+.menu {
+    height: 100vh;
+    width: 100vw;
+    clip-path: circle(.5% at 93% 90%);
+    background-color: rgba(0,0,0,0.2);
+    transition: all .5s ease-in-out;
+}
+.menu-items {
+    height: 100%;
+    padding: 2rem 2rem 6rem 2rem;
+    display: grid;
+    gap: 1rem;
+    grid-template-rows: repeat(5, 1fr);
+}
+.menu-item{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    outline: none;
+    font-size: 1.8rem;
+    color: var(--black);
+    background: rgba( 255, 255, 255, 0.25 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 4px );
+    -webkit-backdrop-filter: blur( 4px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    transition: all .2s ease-in-out;
+}
+.menu-item:hover {
+    background: var(--blue);
+    font-size: 2rem;
+    color: var(--white);
+}
+
+/* *************** Theme *************** */
+x
+/* *************** Section *************** */
+.section {
+    background-color: var(--gray);
+}
+.section > h2 {
+    height: 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: var(--white);
+    background-color: var(--blue);
+}
+
+/* *************** Utilities *************** */
+.none {
+    display: none;
+}
