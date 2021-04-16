@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Examen</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        table {
+            border: 1px solid chocolate;
+        }
+        td {
+            border: 1px solid blue;
+        }
+    </style>
+</head>
+<body>
+    <h3>Introduce un numero y genera una tabla de numeros primos</h3>
+    <input type="number">
+    <button id="add">add</button>
+    <table></table>
+
+    <script>
+        const btn = document.querySelector("button")
+        const number = document.querySelector("input")
+        const table = document.querySelector("table")
+        const numColumns = 5
+
+        const print = () => {
+            let times = number.value
+            if (table.childNodes.length != 0) {
+                vaciar(table)
+            }
+            if (times) {
+                let frag = document.createDocumentFragment()
+                let iter = getPrime()
+                let item = 0
+                let working = document.createElement("tr")
+                for (let i = 0; i < times; i++) {
+                    if (item % numColumns === 0 && item != 0) {
+                        // new line
+                        frag.appendChild(working)
+                        working = document.createElement("tr")
+                        item = 0
+                    }
+                    // same line
+                    let aux = document.createElement("td")
+                    aux.textContent = iter.next().value
+                    working.appendChild(aux)
+                    item ++
+                }
+                // Residual items
+                if (item != 0) frag.appendChild(working)
+                table.appendChild(frag)
+            }
+        }
+
+        btn.addEventListener("click", print)
+
+        function* getPrime () {
+            let num = 2
+            for (let i = 2; i < 999999; i++) {
+                if (isPrime(i)) {
+                    num = i
+                    yield i
+                }
+            }
+        }
+        const isPrime = (n) => {
+            if (n<=1) return false;
+            else{
+                for (let i = 2; i < Math.floor(Math.sqrt(n)) + 1; i++) {
+                    if (n % i == 0) {
+                        return false
+                    }
+                }
+            }
+            return true
+        }
+        const vaciar = (elem) => {
+            while(elem.childNodes.length > 0) {
+                elem.lastChild.remove()
+            }
+        }
+    </script>
+</body>
+</html>
