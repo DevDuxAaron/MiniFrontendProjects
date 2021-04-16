@@ -1,0 +1,111 @@
+body {
+    background-color: #d6dce6;
+    padding: 0;
+    margin: 0;
+}
+.container {
+    height: 135px;
+    width: 420px;
+    position: absolute;
+    margin:  auto;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+input[type="checkbox"] {
+    -webkit-appearance: none;
+    appearance: none;
+    height: 100px;
+    width: 100px;
+    background: linear-gradient(
+        to bottom,
+        #e9ebeb,
+        #bdc7d6
+    );
+    position: absolute;
+    z-index: 1;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    left: 85px;
+    border-radius: 50%;
+    transition: 0.5s;
+    outline: none;
+    cursor: pointer;
+}
+input[type="checkbox"]:checked {
+    transform: translateX(145px);
+}
+input[type="checkbox"]:after {
+    position: absolute;
+    content: "";
+    margin: auto;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    height: 65px;
+    width: 65px;
+    background: linear-gradient(
+        to top,
+        #e9ebeb,
+        #bdc7d6
+    );
+    border-radius: 50%;
+}
+label {
+    height: 135px;
+    width: 300px;
+    background: linear-gradient(
+        to bottom,
+        #bdc8da,
+        #eaedf2
+    );
+    position: absolute;
+    margin: auto;
+    left: 0;
+    right: 0;
+    border-radius: 70px;
+    cursor: pointer;
+}
+label:after {
+    position: absolute;
+    content: "";
+    background-color: #23b65b;
+    height: 30px;
+    width: 200px;
+    margin: auto;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    border-radius: 30px;
+    box-shadow: inset 0 10px 15px rgba(0,0,0,0.4);
+    transition: 0.5s;
+}
+input[type="checkbox"]:checked + label:after {
+    background-color: #c45168;
+}
+label span {
+    font-family: Arial, Helvetica, sans-serif;
+    letter-spacing: 1px;
+    font-size: 21px;
+    transition: 0.2s;
+    position: absolute;
+    top: 55px;
+}
+label span:nth-child(1){
+    left: -55px;
+    color: #23b65b;
+}
+label span:nth-child(2){
+    right: -55px;
+    color: #9090aa;
+}
+input[type="checkbox"]:checked + label span:nth-child(1) {
+    color: #9090aa;
+}
+input[type="checkbox"]:checked + label span:nth-child(2) {
+    color: #c45168;
+}
